@@ -336,6 +336,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 			public void onClick(DialogInterface dialog, int which) {
 				Intent intent = new Intent(CaptureActivity.this,CaptureActivity.class);
 				startActivity(intent);
+				CaptureActivity.this.finish();
 			}
 		});
         builder.setNegativeButton(R.string.button_cancel, new OnClickListener() {

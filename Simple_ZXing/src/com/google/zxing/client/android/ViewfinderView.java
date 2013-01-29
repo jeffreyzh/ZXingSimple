@@ -19,6 +19,7 @@ package com.google.zxing.client.android;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.camera.CameraManager;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -37,6 +38,7 @@ import java.util.List;
  *
  * @author dswitkin@google.com (Daniel Switkin)
  */
+@SuppressLint("DrawAllocation")
 public final class ViewfinderView extends View {
 
   private static final int[] SCANNER_ALPHA = {0, 64, 128, 192, 255, 192, 128, 64};
@@ -84,6 +86,8 @@ public final class ViewfinderView extends View {
     if (frame == null) {
       return;
     }
+    frame = new Rect(frame.top, frame.left, frame.bottom, frame.right);
+    
     int width = canvas.getWidth();
     int height = canvas.getHeight();
 
@@ -101,11 +105,11 @@ public final class ViewfinderView extends View {
     } else {
 
       // Draw a two pixel solid black border inside the framing rect
-      paint.setColor(frameColor);
-      canvas.drawRect(frame.left, frame.top, frame.right + 1, frame.top + 2, paint);
-      canvas.drawRect(frame.left, frame.top + 2, frame.left + 2, frame.bottom - 1, paint);
-      canvas.drawRect(frame.right - 1, frame.top, frame.right + 1, frame.bottom - 1, paint);
-      canvas.drawRect(frame.left, frame.bottom - 1, frame.right + 1, frame.bottom + 1, paint);
+//      paint.setColor(frameColor);
+//      canvas.drawRect(frame.left, frame.top, frame.right + 1, frame.top + 2, paint);
+//      canvas.drawRect(frame.left, frame.top + 2, frame.left + 2, frame.bottom - 1, paint);
+//      canvas.drawRect(frame.right - 1, frame.top, frame.right + 1, frame.bottom - 1, paint);
+//      canvas.drawRect(frame.left, frame.bottom - 1, frame.right + 1, frame.bottom + 1, paint);
 
       // Draw a red "laser scanner" line through the middle to show decoding is active
       paint.setColor(laserColor);

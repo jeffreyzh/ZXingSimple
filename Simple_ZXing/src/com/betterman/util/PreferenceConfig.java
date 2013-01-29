@@ -17,4 +17,6 @@ public class PreferenceConfig {
 	  public static final boolean KEY_FRONT_LIGHT_ENABLE = false;//前置灯
 	  public static final boolean KEY_REVERSE_IMAGE_ENABLE = false;//反转图片
 	  
+	  public static final boolean KEY_AUTO_FOCUS_ENABLE = true;//自动聚焦
+	  public static final boolean KEY_DISABLE_CONTINUOUS_FOCUS_ENABLE = false;//持续聚焦
 }
